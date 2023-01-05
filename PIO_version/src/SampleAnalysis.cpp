@@ -1,11 +1,5 @@
 #include "SampleAnalysis.h"
 //interrupt timing sample array
-volatile unsigned long microseconds; //sampling timer
-volatile byte index = 0;
-volatile unsigned long samples[samplesize];
-
-
-
 void sample()
 {
   if(index < samplesize) {
@@ -20,7 +14,7 @@ void sample()
 
 
 
-void analyzeSample(volatile unsigned long samples[], volatile byte index)
+void analyzeSample()
 {
   //eating up memory, one long at a time!
   unsigned long averg = 0;

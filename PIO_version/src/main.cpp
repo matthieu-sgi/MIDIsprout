@@ -17,9 +17,7 @@ MIDIsprout.com
 
 //******************************
 //set scaled values, sorted array, first element scale length
-volatile unsigned long microseconds; //sampling timer
-volatile byte index = 0;
-volatile unsigned long samples[samplesize];
+
 
 void setup()
 {
@@ -39,7 +37,7 @@ void loop()
   currentMillis = millis();   //manage time
   checkBattery(); //on low power, shutoff lightShow, continue MIDI operation
   checkKnob(); //check knob value
-  if(index >= samplesize)  { analyzeSample(samples,index); }  //if samples array full, also checked in analyzeSample(), call sample analysis   
+  if(index >= samplesize)  { analyzeSample(); }  //if samples array full, also checked in analyzeSample(), call sample analysis   
   checkNote();  //turn off expired notes 
   checkControl();  //update control value
   //checkButton();  //not implemented in this build
